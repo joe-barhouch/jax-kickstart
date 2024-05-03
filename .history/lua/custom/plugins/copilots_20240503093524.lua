@@ -13,7 +13,7 @@ return {
             accept_word = '<C-l>',
             next = '<C-n>',
             prev = '<C-p>',
-            discard = '<C-;>',
+            discard = '<Esc>',
           },
         },
         server_opts_overrides = {

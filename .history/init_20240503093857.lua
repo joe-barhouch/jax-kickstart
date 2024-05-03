@@ -9,9 +9,6 @@ vim.g.maplocalleader = ' '
 -- Disable swap files
 vim.opt.swapfile = false
 
--- Linebreak
-vim.opt.linebreak = true
-
 -- Enable gui colors
 vim.opt.termguicolors = true
 
@@ -741,9 +738,6 @@ require('lazy').setup({
       statusline.section_location = function()
         return '%2l:%-2v'
       end
-
-      -- Files like Oil
-      require('mini.files').setup()
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim

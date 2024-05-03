@@ -10,10 +10,10 @@ return {
           auto_trigger = true, -- NOTE: This can be false and have a trigger to open 'open'
           keymap = {
             accept = '<Tab>',
-            accept_word = '<C-l>',
+            accept_word = '<C-.>',
             next = '<C-n>',
             prev = '<C-p>',
-            discard = '<C-;>',
+            discard = '<Esc>',
           },
         },
         server_opts_overrides = {
