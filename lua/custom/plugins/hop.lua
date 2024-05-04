@@ -2,9 +2,7 @@ return {
   {
     'smoka7/hop.nvim',
     opts = {
-      quit_key = '<Space>',
-
-      -- TODO: Add more keybindings
+      vim.keymap.set('n', '<leader>a', '<cmd>HopWord<CR>', { noremap = true, desc = 'Hop hint Word' }),
     },
   },
 }

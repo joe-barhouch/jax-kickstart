@@ -1,7 +1,9 @@
 -- *** Start of init.lua file. Entry point to config
 
+--[[OPTS]]
 -- Set <space> as the leader key
 -- See `:help mapleader`
+-- TODO: This should be moved to a separate file
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -12,18 +14,21 @@ vim.opt.swapfile = false
 -- Linebreak
 vim.opt.linebreak = true
 
+-- Text widths
+vim.opt.textwidth = 80
+
 -- Enable gui colors
 vim.opt.termguicolors = true
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Make line numbers default
+-- Make line numbers deffalseault
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
@@ -108,6 +113,15 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Quick Save
+vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = '[S]ave file' })
+
+-- Quick quit
+vim.keymap.set('n', '<C-q>', '<cmd>q<CR>', { desc = '[Q]uit' })
+
+-- Quick escape
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Quick [E]scape' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -198,8 +212,8 @@ require('lazy').setup({
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]odo', _ = 'which_key_ignore' },
+        ['<leader>h'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
       }
       -- visual mode
       require('which-key').register({
@@ -237,7 +251,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = true },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -297,6 +311,8 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+      vim.keymap.set('v', 'v', ':normal! ggVG<CR>', { desc = 'Select all' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -645,7 +661,7 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<CR>'] = cmp.mapping.confirm { select = false },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
@@ -705,9 +721,6 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',

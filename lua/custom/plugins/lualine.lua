@@ -55,6 +55,10 @@ return {
         theme = my_lualine_theme,
       },
       sections = {
+        lualine_c = {
+          { 'parent' },
+          { 'filename' },
+        },
         lualine_x = {
           {
             lazy_status.updates,
@@ -64,6 +68,28 @@ return {
           { 'encoding' },
           { 'fileformat' },
           { 'filetype' },
+        },
+
+        lualine_y = {
+          -- TODO: This is from Ollama, not working
+          {
+            function()
+              local status = require('ollama').status()
+
+              if status == 'IDLE' then
+                return '󱙺' -- nf-md-robot-outline
+              elseif status == 'WORKING' then
+                return '󰚩' -- nf-md-robot
+              end
+            end,
+            cond = function()
+              return package.loaded['ollama'] and require('ollama').status() ~= nil
+            end,
+          },
+        },
+
+        lualine_z = {
+          'datetime',
         },
       },
     }
