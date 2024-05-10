@@ -5,4 +5,5 @@ return {
   'nvim-tree/nvim-web-devicons',
   'HiPhish/rainbow-delimiters.nvim',
   'sindrets/diffview.nvim',
+  'tpope/vim-unimpaired',
 }

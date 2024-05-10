@@ -4,6 +4,9 @@ return {
     'nvim-lua/plenary.nvim',
   },
   opts = {
+    -- TODO: Commands here only work until a limit of buffer index is reached (0 or max buffer size).
+    --  If i have 3 buffers, i can only navigate between once, till i hit either max or 0, where it will break.
+
     vim.api.nvim_set_keymap('n', '<C-]>', '<cmd>lua require("harpoon.ui").nav_file(1)()<CR>', { noremap = true, silent = false }),
     vim.api.nvim_set_keymap('n', '<C-[>', '<cmd>lua require("harpoon.ui").nav_file(-1)()<CR>', { noremap = true, silent = false }),
     vim.api.nvim_set_keymap(

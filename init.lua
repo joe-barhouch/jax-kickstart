@@ -11,12 +11,6 @@ vim.g.maplocalleader = ' '
 -- Disable swap files
 vim.opt.swapfile = false
 
--- Linebreak
-vim.opt.linebreak = true
-
--- Text widths
-vim.opt.textwidth = 80
-
 -- Enable gui colors
 vim.opt.termguicolors = true
 
@@ -54,6 +48,9 @@ vim.opt.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Keyword to delete word till underscore
+vim.opt.iskeyword:remove '_'
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
@@ -266,8 +263,6 @@ require('lazy').setup({
       -- a corresponding preview of the help.
       --
       -- Two important keymaps to use while in Telescope are:
-      --  - Insert mode: <c-/>
-      --  - Normal mode: ?
       --
       -- This opens a window that shows you all of the keymaps for the current
       -- Telescope picker. This is really useful to discover what Telescope can
@@ -498,7 +493,6 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -508,9 +502,10 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-        --
-        ruff = {},
+        -- Python
+        -- ruff = {},
         ruff_lsp = {},
+        pyright = {},
 
         lua_ls = {
           -- cmd = {...},
