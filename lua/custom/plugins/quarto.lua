@@ -35,27 +35,17 @@ return {
     },
   },
 
+  -- Otter for LSP completion in QMD (quarto) files
   {
     'jmbuhr/otter.nvim',
     opts = {
       buffers = {
-        set_filetype = true,
+        set_filetype = false,
       },
     },
   },
 
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'jmbuhr/otter.nvim' },
-    opts = function(_, opts)
-      ---@param opts cmp.ConfigSchema
-      local cmp = require 'cmp'
-      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = 'otter' } }))
-    end,
-  },
-
-  -- send code from python/r/qmd documets to a terminal or REPL
-  -- like ipython, R, bash
+  -- send code from python/qmd documents to a terminal or REPL
   {
     'jpalardy/vim-slime',
     init = function()
@@ -96,6 +86,8 @@ return {
     end,
   },
 
+  -- NOTE: Might not be needed
+  -- LSP config
   {
     'neovim/nvim-lspconfig',
     ---@class PluginLspOpts
@@ -103,8 +95,6 @@ return {
       ---@type lspconfig.options
       servers = {
         pyright = {},
-        r_language_server = {},
-        julials = {},
         marksman = {
           -- also needs:
           -- $home/.config/marksman/config.toml :
@@ -117,6 +107,7 @@ return {
     },
   },
 
+  -- NOTE: Might not be needed
   {
     'nvim-treesitter/nvim-treesitter',
     opts = {
@@ -136,15 +127,6 @@ return {
         'vim',
         'vimdoc',
         'yaml',
-        'bash',
-        'html',
-        'json',
-        'lua',
-        'markdown',
-        'markdown_inline',
-        'python',
-        'vim',
-        'python',
       },
     },
   },

@@ -504,8 +504,19 @@ require('lazy').setup({
         --
         -- Python
         -- ruff = {},
-        ruff_lsp = {},
-        pyright = {},
+        -- ruff_lsp = {},
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = 'workspace',
+                reportUnusedImports = false,
+                reportUnusedVariable = false,
+              },
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
@@ -696,6 +707,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'otter' },
         },
       }
     end,
