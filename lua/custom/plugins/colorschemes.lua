@@ -1,4 +1,10 @@
 return {
-  'luisiacc/gruvbox-baby',
-  'catppuccin/nvim',
+  -- lush
+  'rktjmp/lush.nvim',
+
+  -- themes
+  'npxbr/gruvbox.nvim',
+  -- 'catppuccin/nvim',
+  'okaihe/okai',
+  'xero/miasma.nvim',
 }

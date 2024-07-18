@@ -24,8 +24,8 @@ return {
       { '<c-cr>', '<esc>:SlimeSend<cr>i', mode = 'i', desc = 'send code chunk' },
       { '<c-cr>', '<Plug>SlimeRegionSend<cr>', mode = 'v', desc = 'send code chunk' },
       { '<cr>', '<Plug>SlimeRegionSend<cr>', mode = 'v', desc = 'send code chunk' },
-      { '<leader>cti', ':split term://ipython<cr>', desc = 'terminal: ipython' },
-      { '<leader>ctp', ':split term://python<cr>', desc = 'terminal: python' },
+      { '<leader>cti', ':vsplit term://ipython<cr>', desc = 'terminal: ipython' },
+      { '<leader>ctp', ':vsplit term://python<cr>', desc = 'terminal: python' },
       --TODO: add keymap to spawn python block
       --TODO: add keymaps to move to next/prev python block
     },
