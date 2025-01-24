@@ -1,4 +1,8 @@
 return {
   'gbprod/cutlass.nvim',
-  opts = {},
+  opts = {
+    cut_key = 'd',
+    override_del = true,
+    exclude = { 'x' },
+  },
 }

@@ -8,3 +8,5 @@ lazy-lock.json
 
 .history/
 .history
+.aider*
+.env

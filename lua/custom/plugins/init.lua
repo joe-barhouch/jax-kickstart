@@ -6,4 +6,5 @@ return {
   'HiPhish/rainbow-delimiters.nvim',
   'sindrets/diffview.nvim',
   'tpope/vim-unimpaired',
+  'eandrju/cellular-automaton.nvim',
 }
