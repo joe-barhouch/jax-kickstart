@@ -1,8 +1,7 @@
 return {
-  { 'stevearc/dressing.nvim', enabled = true },
-
   {
     'quarto-dev/quarto-nvim',
+    lazy = true,
     opts = {
       lspFeatures = {
         languages = { 'python', 'bash', 'html', 'lua' },
