@@ -7,4 +7,6 @@ return {
   'sindrets/diffview.nvim',
   'tpope/vim-unimpaired',
   'eandrju/cellular-automaton.nvim',
+
+  'xiyaowong/transparent.nvim',
 }

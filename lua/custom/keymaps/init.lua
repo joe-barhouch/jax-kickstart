@@ -67,3 +67,19 @@ vim.keymap.set(
 )
 
 vim.keymap.set('n', '<leader>|', '<cmd>vsplit<CR>', { desc = 'V-split', noremap = true, silent = true })
+
+vim.keymap.set(
+  -- C d zz
+  'n',
+  '<C-d>',
+  '<C-d>zz',
+  { noremap = true, silent = true }
+)
+
+vim.keymap.set(
+  -- C u zz
+  'n',
+  '<C-u>',
+  '<C-u>zz',
+  { noremap = true, silent = true }
+)

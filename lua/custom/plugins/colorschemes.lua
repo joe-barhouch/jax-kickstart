@@ -7,5 +7,4 @@ return {
   -- 'catppuccin/nvim',
   'okaihe/okai',
   'xero/miasma.nvim',
-  'danwlker/primeppuccin',
 }
